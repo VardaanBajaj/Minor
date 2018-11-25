@@ -1,0 +1,30 @@
+{
+  "name": "cloudheadblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.1",
+    "edge.js": "^1.1.4",
+    "express": "^4.16.4",
+    "express-edge": "^1.0.0",
+    "express-fileupload": "^1.0.0-alpha.1",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "handlebars-dateformat": "^1.1.1",
+    "hbs": "^4.0.1",
+    "install": "^0.12.1",
+    "mongoose": "^5.3.3",
+    "path": "^0.12.7",
+    "startbootstrap-clean-blog": "^5.0.1"
+  }
+}

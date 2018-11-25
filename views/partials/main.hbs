@@ -1,0 +1,40 @@
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>User Blogs</h1>
+              <span class="subheading">Boost Your Knowledge</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {{#each posts}}
+          <div class="post-preview">
+            <a href="../post_{{this._id}}">
+              <h2 class="post-title">
+                {{this.title}}
+              </h2>
+            </a>
+            <p class="post-meta">Posted by
+              <a href="#">{{this.username}}</a>
+              on {{ dateFormat post.createdAt 'DD/MM/YYYY' }}
+            </p>
+          </div>
+          <hr>
+        {{/each}}
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
