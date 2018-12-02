@@ -12,6 +12,7 @@ module.exports=(req,res)=>{
     i=doc.username;
     image.mv(path.resolve(__dirname,'..','public/posts',image.name), (error)=>{
       post.create({
+        userid: doc.id,
         username: doc.username,
         ...req.body,
         image: `/posts/${image.name}`
