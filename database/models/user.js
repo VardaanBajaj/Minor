@@ -6,6 +6,7 @@ const UserSchema=new mongoose.Schema({
     type: String,
     required: true
   },
+  image: String,
   email: {
     type: String,
     required: true,
@@ -18,6 +19,9 @@ const UserSchema=new mongoose.Schema({
   createdAt: {
     type: Date,
     default: new Date()
+  },
+  description: {
+    type: String
   }
 })
 
