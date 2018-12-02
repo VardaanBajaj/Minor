@@ -1,13 +1,15 @@
+var path=require('path');
 const User=require('./../database/models/user');
 
 module.exports=(req,res)=>{
-  User.create(req.body, (error,user)=>{
-    if(error) {
-      const registrationErrors=Object.keys(error.errors).map(key => error.errors[key].message);
-
-      req.flash('registrationErrors', registrationErrors);
-      return res.redirect('/auth_register');
-    }
-    res.redirect('/');
-  })
+    const {
+      image
+    }=req.files
+    image.mv(path.resolve(__dirname,'..','public/users',image.name), (error)=>{
+      User.create({
+        ...req.body,
+        image: `/users/${image.name}`
+      });
+      res.redirect('/');
+    });
 };
