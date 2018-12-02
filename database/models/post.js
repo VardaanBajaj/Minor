@@ -7,10 +7,12 @@ const PostSchema=new mongoose.Schema({
   description: String,
   content: String,
   username: String,
+  userid: String,
   image: String,
-  // likes: Number{
-  //   default: 0
-  // },
+  likes: {
+    type: Number,
+    default: 0
+  },
   createdAt: {
     type: Date,
     default: new Date()
