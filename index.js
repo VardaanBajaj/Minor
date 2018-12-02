@@ -14,8 +14,10 @@ const createPostController=require('./controllers/createPost');
 const homePageController=require('./controllers/homePage');
 const storePostController=require('./controllers/storePost');
 const getPostController=require('./controllers/getPost');
+const getUserController=require('./controllers/getUser');
 const createUserController=require('./controllers/createUser');
 const storeUserController=require('./controllers/storeUser');
+const storeLikesController=require('./controllers/storeLikes');
 const loginController=require('./controllers/login');
 const loginUserController=require('./controllers/loginUser');
 const logoutController = require("./controllers/logout");
@@ -36,11 +38,6 @@ app.use(expressSession({
 app.use(fileupload());
 app.use(express.static('public'));
 app.set('view engine', 'hbs');
-
-// app.use('*', (req, res, next) => {
-//     edge.global('auth', req.session.userId)
-//     next();
-// });
 
 mongoose.connect('mongodb://localhost:27017/CloudHead', {useNewUrlParser: true})
   .then(()=>'You are connected to mongo')
@@ -63,8 +60,10 @@ app.use('/posts/store',storePost);
 
 app.get("/", homePageController);
 app.get("/post_:id", getPostController);
+app.get("/user_:id", getUserController);
 app.get("/create_post", auth, createPostController);
-app.post("/posts/store", storePostController);
+app.post("/posts/store", redirectIfAuthenticated, storePostController);
+app.get("like_:id", redirectIfAuthenticated, storeLikesController);
 app.get("/auth_register", redirectIfAuthenticated, createUserController);
 app.get("/auth_login", redirectIfAuthenticated, loginController);
 app.post("/users/register", redirectIfAuthenticated, storeUserController);
