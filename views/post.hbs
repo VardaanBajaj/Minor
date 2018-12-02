@@ -63,7 +63,7 @@
                    <h1>{{post.title}}</h1>
                    <h2 class="subheading">{{post.description}}</h2>
                    <span class="meta">Posted by
-                     <a href="about.html">{{ post.username }}</a>
+                     <a href="../user_{{post.userid}}">{{ post.username }}</a>
                      on {{ dateFormat post.createdAt 'DD/MM/YYYY'  }}
                    </span>
                  </div>
@@ -75,6 +75,14 @@
          <!-- Post Content -->
          <article>
            <div class="container">
+             <div class="row">
+               <form action="#" method="get">
+                 <div class="form-group my-4 text-center">
+                   <button class="btn btn-primary" name="likebtn" id="likebtn">Like</button>
+                   <h5> {{post.likes}} Likes</h5>
+                 </div>
+               </form>
+             </div>
              <div class="row">
                <div class="col-lg-8 col-md-10 mx-auto">
                  {{post.content}}
